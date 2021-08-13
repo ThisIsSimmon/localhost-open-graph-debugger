@@ -42,7 +42,6 @@ class LocalhostOpenGraphDebugger {
 
 				const file = new File([blob], `${this.uniqueID}_${fileName}`, { type: 'application/octet-stream' });
 				images[property] = file;
-				// console.log(file);
 				// this.postData.images.push(file);
 
 				// const fetchAsBlob = (url) => fetch(url).then((response) => response.blob());
