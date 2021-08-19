@@ -67,7 +67,7 @@ class LocalhostOpenGraphDebugger {
 	};
 
 	post = (postData) => {
-		const url = 'http://localhost:9999';
+		const url = 'http://localhost:4000/post';
 		const formData = new FormData();
 		formData.append('op', this.postData);
 		fetch(url, {
