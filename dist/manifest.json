@@ -1,0 +1,11 @@
+{
+	"manifest_version": 3,
+	"name": "Localhost Open Graph Debugger",
+	"version": "1.0",
+	"description": "description",
+	"action": {},
+	"permissions": ["activeTab", "scripting"],
+	"background": {
+		"service_worker": "service-worker.js"
+	}
+}
