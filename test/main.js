@@ -5,8 +5,9 @@ class LocalhostOpenGraphDebugger {
 		this.uniqueID = this.getUniqueID();
 		this.postData = { meta: [], images: [] };
 
-		this.postData.meta = this.getNodeListToArray(this.getMetaNodeList());
 		this.postData.images = this.getImages();
+
+		this.postMeta = this.getMetaObject(this.getMetaNodeList());
 
 		this.post(this.postData);
 	}
@@ -25,8 +26,13 @@ class LocalhostOpenGraphDebugger {
 		return document.head.querySelectorAll('meta');
 	};
 
-	getNodeListToArray = (nodeList) => {
-		return [...nodeList].map((m) => m.outerHTML);
+	getMetaObject = (metaNodeList) => {
+		let metaObject = {};
+		for (const meta of metaNodeList) {
+			const property = meta.getAttribute('property') || meta.getAttribute('name') || meta.getAttribute('charset');
+			metaObject[property] = meta.outerHTML;
+		}
+		return metaObject;
 	};
 
 	getImages = () => {
@@ -69,15 +75,13 @@ class LocalhostOpenGraphDebugger {
 	post = (postData) => {
 		const url = 'http://localhost:4000/post';
 		const formData = new FormData();
-		formData.append('op', this.postData);
+		formData.append('meta', JSON.stringify(this.postMeta));
+
 		fetch(url, {
 			method: 'POST',
 			mode: 'cors',
 			cache: 'no-cache',
 			credentials: 'omit',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',
-			},
 			body: formData,
 		})
 			.then((response) => {
