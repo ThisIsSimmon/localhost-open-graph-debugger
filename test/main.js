@@ -2,14 +2,14 @@ import './style.css';
 
 class LocalhostOpenGraphDebugger {
 	constructor() {
-		this.uniqueID = this.getUniqueID();
-		this.postData = { meta: [], images: [] };
+		this.start();
+	}
 
-		this.postData.images = this.getImages();
-
-		this.postMeta = this.getMetaObject(this.getMetaNodeList());
-
-		this.post(this.postData);
+	async start() {
+		this.uniqueID = await this.getUniqueID();
+		this.postImages = await this.getImages();
+		this.postMeta = await this.getMetaObject(this.getMetaNodeList());
+		await this.post();
 	}
 
 	getUniqueID = () => {
@@ -35,20 +35,28 @@ class LocalhostOpenGraphDebugger {
 		return metaObject;
 	};
 
-	getImages = () => {
+	async getImages() {
 		let images = [];
 		for (const m of this.getMetaNodeList()) {
 			const property = m.getAttribute('property');
 			if (/og:image|twitter:image/.test(property)) {
 				const imgURL = m.getAttribute('content');
-
-				const blob = (url) => fetch(imgURL).then((response) => response.blob());
 				const extensionIndex = imgURL.lastIndexOf('/');
 				const fileName = imgURL.slice(extensionIndex + 1);
 
-				const file = new File([blob], `${this.uniqueID}_${fileName}`, { type: 'application/octet-stream' });
+				const fetchAsBlob = (url) =>
+					fetch(url)
+						.then((res) => res.blob())
+						.then((blob) => {
+							return blob;
+						});
+				const convertBlobToFile = (blob) => {
+					return new File([blob], fileName, { type: 'application/octet-stream' });
+				};
+
+				const blob = await fetchAsBlob(imgURL);
+				const file = await convertBlobToFile(blob);
 				images[property] = file;
-				// this.postData.images.push(file);
 
 				// const fetchAsBlob = (url) => fetch(url).then((response) => response.blob());
 
@@ -69,12 +77,17 @@ class LocalhostOpenGraphDebugger {
 				// 	});
 			}
 		}
+		console.log(images);
 		return images;
-	};
+	}
 
-	post = (postData) => {
+	post = () => {
 		const url = 'http://localhost:4000/post';
 		const formData = new FormData();
+		formData.append('hash', JSON.stringify(this.uniqueID));
+		for (const property in this.postImages) {
+			formData.append(property, this.postImages[property]);
+		}
 		formData.append('meta', JSON.stringify(this.postMeta));
 
 		fetch(url, {
