@@ -77,7 +77,6 @@ class LocalhostOpenGraphDebugger {
 				// 	});
 			}
 		}
-		console.log(images);
 		return images;
 	}
 
@@ -98,14 +97,19 @@ class LocalhostOpenGraphDebugger {
 			body: formData,
 		})
 			.then((response) => {
-				console.log(response);
-				if (response.ok) {
-					return response.json();
-				}
-				throw new Error(`Status: ${response.status}, statusText: ${response.statusText}`);
+				// if (response.ok) {
+				// 	return response.json();
+				// }
+				return response.json();
+
+				// throw new Error(`Status: ${response.status}, statusText: ${response.statusText}`);
 			})
 			.then((dataBack) => {
-				console.log(dataBack);
+				if ('Fail' === dataBack.status) {
+					throw dataBack;
+				} else {
+					console.log(dataBack);
+				}
 			})
 			.catch((error) => {
 				console.error(error);
