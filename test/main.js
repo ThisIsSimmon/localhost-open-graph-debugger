@@ -81,7 +81,7 @@ class LocalhostOpenGraphDebugger {
 	}
 
 	post = () => {
-		const url = 'http://localhost:4000/post';
+		const baseUrl = 'http://localhost:4000';
 		const formData = new FormData();
 		formData.append('hash', JSON.stringify(this.uniqueID));
 		for (const property in this.postImages) {
@@ -89,7 +89,7 @@ class LocalhostOpenGraphDebugger {
 		}
 		formData.append('meta', JSON.stringify(this.postMeta));
 
-		fetch(url, {
+		fetch(`${baseUrl}/post`, {
 			method: 'POST',
 			mode: 'cors',
 			cache: 'no-cache',
@@ -108,6 +108,7 @@ class LocalhostOpenGraphDebugger {
 				if ('Fail' === dataBack.status) {
 					throw dataBack;
 				} else {
+					window.open(`${baseUrl}/site/${this.uniqueID}`, '_blank');
 					console.log(dataBack);
 				}
 			})
