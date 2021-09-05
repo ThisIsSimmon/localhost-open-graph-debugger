@@ -106,7 +106,7 @@ class LocalhostOpenGraphDebugger {
 				if ('Fail' === dataBack.status) {
 					throw dataBack;
 				} else {
-					window.open(`${baseUrl}/site/${this.uniqueID}`, '_blank');
+					window.open(`${baseUrl}/site/${this.uniqueID}`, '_blank', 'noreferrer');
 					console.log(dataBack);
 				}
 			})
