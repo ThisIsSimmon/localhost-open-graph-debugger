@@ -37,7 +37,7 @@ class LocalhostOpenGraphDebugger {
 		let images = [];
 		for (const m of this.getMetaNodeList()) {
 			const property = m.getAttribute('property');
-			if (/og:image|twitter:image/.test(property)) {
+			if (/^og:image$|^twitter:image$/.test(property)) {
 				const imgURL = m.getAttribute('content');
 				const extensionIndex = imgURL.lastIndexOf('/');
 				const fileName = imgURL.slice(extensionIndex + 1);
