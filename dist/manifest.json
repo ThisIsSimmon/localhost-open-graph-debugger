@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"name": "Localhost Open Graph Debugger",
 	"version": "1.0",
-	"description": "description",
+	"description": "Localhost Open Graph Debugger is a Chrome Extension for checking Open Graph meta tags of locally hosted websites.",
 	"icons": {
 		"16": "/images/icon-16x16.png",
 		"32": "/images/icon-32x32.png",
