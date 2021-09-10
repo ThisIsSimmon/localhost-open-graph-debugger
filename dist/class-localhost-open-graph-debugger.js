@@ -79,7 +79,7 @@ class LocalhostOpenGraphDebugger {
 	}
 
 	post = () => {
-		const baseUrl = 'http://localhost:4000';
+		const baseUrl = 'https://og.nullnull.dev';
 		const formData = new FormData();
 		formData.append('hash', JSON.stringify(this.uniqueID));
 		for (const property in this.postImages) {
@@ -95,12 +95,7 @@ class LocalhostOpenGraphDebugger {
 			body: formData,
 		})
 			.then((response) => {
-				// if (response.ok) {
-				// 	return response.json();
-				// }
 				return response.json();
-
-				// throw new Error(`Status: ${response.status}, statusText: ${response.statusText}`);
 			})
 			.then((dataBack) => {
 				if ('Fail' === dataBack.status) {
