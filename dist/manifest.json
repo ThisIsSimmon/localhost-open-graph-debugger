@@ -3,7 +3,20 @@
 	"name": "Localhost Open Graph Debugger",
 	"version": "1.0",
 	"description": "description",
-	"action": {},
+	"icons": {
+		"16": "/images/icon-16x16.png",
+		"32": "/images/icon-32x32.png",
+		"48": "/images/icon-48x48.png",
+		"128": "/images/icon-128x128.png"
+	},
+	"action": {
+		"default_icon": {
+			"16": "/images/icon-16x16.png",
+			"32": "/images/icon-32x32.png",
+			"48": "/images/icon-48x48.png",
+			"128": "/images/icon-128x128.png"
+		}
+	},
 	"permissions": ["activeTab", "scripting"],
 	"background": {
 		"service_worker": "service-worker.js"
