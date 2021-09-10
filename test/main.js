@@ -97,12 +97,7 @@ class LocalhostOpenGraphDebugger {
 			body: formData,
 		})
 			.then((response) => {
-				// if (response.ok) {
-				// 	return response.json();
-				// }
 				return response.json();
-
-				// throw new Error(`Status: ${response.status}, statusText: ${response.statusText}`);
 			})
 			.then((dataBack) => {
 				if ('Fail' === dataBack.status) {
