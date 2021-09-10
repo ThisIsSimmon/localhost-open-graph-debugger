@@ -55,24 +55,6 @@ class LocalhostOpenGraphDebugger {
 				const blob = await fetchAsBlob(imgURL);
 				const file = await convertBlobToFile(blob);
 				images[property] = file;
-
-				// const fetchAsBlob = (url) => fetch(url).then((response) => response.blob());
-
-				// const convertBlobToBase64 = (blob) =>
-				// 	new Promise((resolve, reject) => {
-				// 		const reader = new FileReader();
-				// 		reader.onerror = reject;
-				// 		reader.onload = () => {
-				// 			resolve(reader.result);
-				// 		};
-				// 		reader.readAsDataURL(blob);
-				// 	});
-
-				// fetchAsBlob(imgURL)
-				// 	.then(convertBlobToBase64)
-				// 	.then((base64) => {
-				// 		document.getElementById('image').src = base64;
-				// 	});
 			}
 		}
 		return images;
