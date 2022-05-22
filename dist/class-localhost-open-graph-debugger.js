@@ -1,4 +1,4 @@
-class LocalhostOpenGraphDebugger {
+LocalhostOpenGraphDebugger = class LocalhostOpenGraphDebugger {
 	constructor() {
 		this.start();
 	}
@@ -91,6 +91,6 @@ class LocalhostOpenGraphDebugger {
 				console.error(error);
 			});
 	};
-}
+};
 
 new LocalhostOpenGraphDebugger();
