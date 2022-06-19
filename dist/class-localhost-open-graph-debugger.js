@@ -63,13 +63,13 @@ LocalhostOpenGraphDebugger = class LocalhostOpenGraphDebugger {
 	post = () => {
 		const baseUrl = 'https://og.nullnull.dev';
 		const formData = new FormData();
-		formData.append('hash', JSON.stringify(this.uniqueID));
+		formData.append('hash', this.uniqueID);
 		for (const property in this.postImages) {
 			formData.append(property, this.postImages[property]);
 		}
 		formData.append('meta', JSON.stringify(this.postMeta));
 
-		fetch(`${baseUrl}/post`, {
+		fetch(`${baseUrl}/api/post`, {
 			method: 'POST',
 			mode: 'cors',
 			cache: 'no-cache',
