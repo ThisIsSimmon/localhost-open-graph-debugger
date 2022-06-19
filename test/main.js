@@ -63,15 +63,14 @@ class LocalhostOpenGraphDebugger {
 	}
 
 	post = () => {
-		const baseUrl = 'http://localhost:4000';
+		const baseUrl = 'http://localhost:5001';
 		const formData = new FormData();
-		formData.append('hash', JSON.stringify(this.uniqueID));
+		formData.append('hash', this.uniqueID);
 		for (const property in this.postImages) {
 			formData.append(property, this.postImages[property]);
 		}
 		formData.append('meta', JSON.stringify(this.postMeta));
-
-		fetch(`${baseUrl}/post`, {
+		fetch(`${baseUrl}/api/post`, {
 			method: 'POST',
 			mode: 'cors',
 			cache: 'no-cache',
@@ -79,6 +78,7 @@ class LocalhostOpenGraphDebugger {
 			body: formData,
 		})
 			.then((response) => {
+				// console.log(response.Response);
 				return response.json();
 			})
 			.then((dataBack) => {
