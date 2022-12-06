@@ -25,8 +25,8 @@
 	const getImages = async () => {
 		let images = [];
 		for (const m of getMetaNodeList()) {
-			const property = m.getAttribute('property');
-			if (/^og:image$|^twitter:image$/.test(property)) {
+			const propertyOrName = m.getAttribute('property') || m.getAttribute('name');
+			if (/^og:image$|^twitter:image$/.test(propertyOrName)) {
 				const imgURL = m.getAttribute('content');
 				const extensionIndex = imgURL.lastIndexOf('/');
 				const fileName = imgURL.slice(extensionIndex + 1);
@@ -43,7 +43,7 @@
 
 				const blob = await fetchAsBlob(imgURL);
 				const file = await convertBlobToFile(blob);
-				images[property] = file;
+				images[propertyOrName] = file;
 			}
 		}
 		return images;
