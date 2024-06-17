@@ -16,5 +16,7 @@
     "editor.codeActionsOnSave": {
         "quickfix.biome": "explicit",
         "source.organizeImports.biome": "explicit"
-    }
+    },
+    "window.zoomLevel": 0,
+    "editor.fontSize": 15
 }
