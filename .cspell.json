@@ -1,0 +1,4 @@
+{
+    "ignorePaths": [".vscode", ".git", "node_modules"],
+    "ignoreWords": ["stylex", "stylexjs"]
+}
