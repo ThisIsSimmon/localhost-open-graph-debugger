@@ -530,6 +530,15 @@
     :where(svg) {
         stroke: currentColor;
     }
+
+    :where(:focus-visible) {
+        outline-style: solid;
+        outline-width: 2px;
+    }
+
+    html {
+        letter-spacing: 0.04em;
+    }
 }
 
 @stylex stylesheet;
