@@ -12,7 +12,7 @@ type Props = {
 };
 
 export const Spinner = ({ size = 20 }: Props): JSX.Element => {
-	const strokeWidth = size / 16;
+	const strokeWidth = size / 14;
 	const r = size / 2.52631579;
 	const cx = size / 2;
 	const cy = size / 2;
