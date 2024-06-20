@@ -1,529 +1,535 @@
 @layer reset {
-/*! TAK's Custom Base.css v1.2.3 | MIT License | github.com/tak-dcxi/taks-custom-base-css */
+    /*! TAK's Custom Base.css v1.2.3 | MIT License | github.com/tak-dcxi/taks-custom-base-css */
 
-/* ======================================================
-//
-// TAK's Custom Base.css Made by TAK - https://www.tak-dcxi.com/
-// This CSS is built based on Normalize.css. (https: //necolas.github.io/normalize.css/)
-// It aims to normalize styles for better cross-browser compatibility, remove default browser styling, and enhance usability and accessibility for all users."
-//
-// ====================================================== */
+    /* ======================================================
+    //
+    // TAK's Custom Base.css Made by TAK - https://www.tak-dcxi.com/
+    // This CSS is built based on Normalize.css. (https: //necolas.github.io/normalize.css/)
+    // It aims to normalize styles for better cross-browser compatibility, remove default browser styling, and enhance usability and accessibility for all users."
+    //
+    // ====================================================== */
 
-/* ======================================================
-// Universal
-// ------------------------------------------------------ */
-*,
-::before,
-::after {
-  /* Ensure padding and borders are included within the dimensions of the element. */
-  box-sizing: border-box;
+    /* ======================================================
+    // Universal
+    // ------------------------------------------------------ */
+    *,
+    ::before,
+    ::after {
+    /* Ensure padding and borders are included within the dimensions of the element. */
+    box-sizing: border-box;
 
-  /* Prevent inline elements from extending beyond their container's bounds. */
-  min-inline-size: 0;
+    /* Prevent inline elements from extending beyond their container's bounds. */
+    min-inline-size: 0;
 
-  /* Remove any default borders. */
-  border-width: 0;
+    /* Remove any default borders. */
+    border-width: 0;
 
-  /* Set a default border style of solid for easy border additions. */
-  border-style: solid;
-}
+    /* Set a default border style of solid for easy border additions. */
+    border-style: solid;
+    }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  ::before,
-  ::after,
-  ::backdrop {
-    /* Disable animations and transitions for users who prefer reduced motion. */
-    background-attachment: scroll !important;
-    scroll-behavior: auto !important;
-    transition-delay: 0s !important;
-    transition-duration: 1ms !important;
-    animation-duration: 1ms !important;
-    animation-delay: 0s !important;
-    animation-iteration-count: 1 !important;
-    view-transition-name: none !important;
-  }
-}
+    @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after,
+    ::backdrop {
+        /* Disable animations and transitions for users who prefer reduced motion. */
+        background-attachment: scroll !important;
+        scroll-behavior: auto !important;
+        transition-delay: 0s !important;
+        transition-duration: 1ms !important;
+        animation-duration: 1ms !important;
+        animation-delay: 0s !important;
+        animation-iteration-count: 1 !important;
+        view-transition-name: none !important;
+    }
+    }
 
-/* ======================================================
-// Document
-// ------------------------------------------------------ */
-:where(:root) {
-  /* Use a common sans-serif font stack for better cross-platform compatibility. */
-  font-family: 'Helvetica Neue', arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'BIZ UDPGothic', meiryo,
-    sans-serif;
+    /* ======================================================
+    // Document
+    // ------------------------------------------------------ */
+    :where(:root) {
+    /* Use a common sans-serif font stack for better cross-platform compatibility. */
+    font-family: 'Helvetica Neue', arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'BIZ UDPGothic', meiryo,
+        sans-serif;
 
-  /* Normalize font-style. */
-  font-style: unset;
+    /* Normalize font-style. */
+    font-style: unset;
 
-  /* Normalize font-weight. */
-  font-weight: 400;
+    /* Normalize font-weight. */
+    font-weight: 400;
 
-  /* From an accessibility perspective, the line spacing within a paragraph should be at least 1.5 times the text size. (https://waic.jp/translations/WCAG21/#visual-presentation) */
-  line-height: 1.5;
+    /* From an accessibility perspective, the line spacing within a paragraph should be at least 1.5 times the text size. (https://waic.jp/translations/WCAG21/#visual-presentation) */
+    line-height: 1.5;
 
-  /* Align text to the start of the element, accommodating left-to-right and right-to-left languages. */
-  text-align: start;
+    /* Align text to the start of the element, accommodating left-to-right and right-to-left languages. */
+    text-align: start;
 
-  /* Remove leading white space for a cleaner text alignment. */
-  text-spacing-trim: trim-start;
+    /* Remove leading white space for a cleaner text alignment. */
+    text-spacing-trim: trim-start;
 
-  /* Use the browser's default method to determine word breaking. */
-  word-break: initial;
+    /* Use the browser's default method to determine word breaking. */
+    word-break: initial;
 
-  /* Apply strict line breaking rules to enhance readability in languages that require it. */
-  line-break: strict;
+    /* Apply strict line breaking rules to enhance readability in languages that require it. */
+    line-break: strict;
 
-  /* Allow long words to be broken and wrapped at any point to prevent overflow. */
-  overflow-wrap: anywhere;
+    /* Allow long words to be broken and wrapped at any point to prevent overflow. */
+    overflow-wrap: anywhere;
 
-  /* Automatically insert hyphens where appropriate for better text flow and alignment. */
-  hyphens: auto;
+    /* Automatically insert hyphens where appropriate for better text flow and alignment. */
+    hyphens: auto;
 
-  /* Prevent mobile browsers from scaling text sizes automatically. */
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+    /* Prevent mobile browsers from scaling text sizes automatically. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 
-  /* Eliminate the tap highlight color on mobile devices for a cleaner interface. */
-  -webkit-tap-highlight-color: transparent;
-}
+    /* Eliminate the tap highlight color on mobile devices for a cleaner interface. */
+    -webkit-tap-highlight-color: transparent;
+    }
 
-/* ======================================================
-// Sections
-// ------------------------------------------------------ */
-:where(body) {
-  /* Ensures the body element occupies at least 100% of the viewport's block size. */
-  min-block-size: 100svb;
+    /* ======================================================
+    // Sections
+    // ------------------------------------------------------ */
+    :where(body) {
+    /* Ensures the body element occupies at least 100% of the viewport's block size. */
+    min-block-size: 100svb;
 
-  /* Reset default margin. */
-  margin: unset;
-}
+    /* Reset default margin. */
+    margin: unset;
+    }
 
-:where(h1, h2, h3, h4, h5, h6) {
-  /* Reset default margin. */
-  margin-block: unset;
+    :where(h1, h2, h3, h4, h5, h6) {
+    /* Reset default margin. */
+    margin-block: unset;
 
-  /* Reset default font-size. */
-  font-size: unset;
-}
+    /* Reset default font-size. */
+    font-size: unset;
+    }
 
-:where(search) {
-  /* Render the `search` element consistently. */
-  display: block flow;
-}
+    :where(search) {
+    /* Render the `search` element consistently. */
+    display: block flow;
+    }
 
-/* ======================================================
-// Grouping content
-// ------------------------------------------------------ */
-:where(p, blockquote, figure, pre, address, ul, ol, dl) {
-  /* Reset default margin-block. */
-  margin-block: unset;
-}
+    /* ======================================================
+    // Grouping content
+    // ------------------------------------------------------ */
+    :where(p, blockquote, figure, pre, address, ul, ol, dl) {
+    /* Reset default margin-block. */
+    margin-block: unset;
+    }
 
-:where(blockquote, figure) {
-  /* Reset default margin-inline. */
-  margin-inline: unset;
-}
+    :where(blockquote, figure) {
+    /* Reset default margin-inline. */
+    margin-inline: unset;
+    }
 
-:where(address):where(:lang(ja)) {
-  /* Reset font style for specific Japanese language elements. */
-  font-style: unset;
-}
+    :where(address):where(:lang(ja)) {
+    /* Reset font style for specific Japanese language elements. */
+    font-style: unset;
+    }
 
-:where(ul, ol) {
-  /* Remove default padding-inline-start. */
-  padding-inline-start: unset;
+    :where(ul, ol) {
+    /* Remove default padding-inline-start. */
+    padding-inline-start: unset;
 
-  /* In Safari, using 'list-style: none' causes the list not to be announced by screen readers, so use 'list-style-type: ""' to hide markers without affecting accessibility. */
-  list-style-type: '';
-}
+    /* In Safari, using 'list-style: none' causes the list not to be announced by screen readers, so use 'list-style-type: ""' to hide markers without affecting accessibility. */
+    list-style-type: '';
+    }
 
-:where(dt) {
-  /* Make definition terms bolder. */
-  font-weight: 700;
-}
+    :where(dt) {
+    /* Make definition terms bolder. */
+    font-weight: 700;
+    }
 
-:where(dd) {
-  /* Remove default indentation. */
-  margin-inline-start: unset;
-}
+    :where(dd) {
+    /* Remove default indentation. */
+    margin-inline-start: unset;
+    }
 
-:where(hr) {
-  /* Sets the thickness of the top border of the <hr> element to 1px. */
-  border-block-start-width: 1px;
-}
+    :where(hr) {
+    /* Sets the thickness of the top border of the <hr> element to 1px. */
+    border-block-start-width: 1px;
+    }
 
-:where(pre) {
-  /* Sets the tab character width to 2 spaces for better readability in preformatted text. */
-  tab-size: 2;
-}
+    :where(pre) {
+    /* Sets the tab character width to 2 spaces for better readability in preformatted text. */
+    tab-size: 2;
+    }
 
-/* ======================================================
-// Text-level semantics
-// ------------------------------------------------------ */
-:where(b, strong) {
-  /* Enhance the weight of bold elements for emphasis. */
-  font-weight: 700;
-}
+    /* ======================================================
+    // Text-level semantics
+    // ------------------------------------------------------ */
+    :where(b, strong) {
+    /* Enhance the weight of bold elements for emphasis. */
+    font-weight: 700;
+    }
 
-:where(em):where(:lang(ja)) {
-  /* Enhance the weight of bold elements for emphasis. */
-  font-weight: 700;
-}
+    :where(em):where(:lang(ja)) {
+    /* Enhance the weight of bold elements for emphasis. */
+    font-weight: 700;
+    }
 
-:where(i, cite, em, dfn, var):where(:lang(ja)) {
-  /* Reset font style for specific Japanese language elements. */
-  font-style: unset;
-}
+    :where(i, cite, em, dfn, var):where(:lang(ja)) {
+    /* Reset font style for specific Japanese language elements. */
+    font-style: unset;
+    }
 
-:where(code, kbd, samp) {
-  /* Set the monospace font using Tailwind as a reference. (https: //tailwindcss.com/docs/font-family) */
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    :where(code, kbd, samp) {
+    /* Set the monospace font using Tailwind as a reference. (https: //tailwindcss.com/docs/font-family) */
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
-  /* Reset font size to ensure consistent appearance across different devices. */
-  font-size: unset;
-}
+    /* Reset font size to ensure consistent appearance across different devices. */
+    font-size: unset;
+    }
 
-:where(cite, dfn)::before {
-  /* Inserts an opening quotation mark before the content of <cite> and <dfn> elements, defaulting to a double quote unless overridden. */
-  content: var(--_quotation-start, '“');
-}
+    :where(cite, dfn)::before {
+    /* Inserts an opening quotation mark before the content of <cite> and <dfn> elements, defaulting to a double quote unless overridden. */
+    content: var(--_quotation-start, '“');
+    }
 
-:where(cite, dfn)::after {
-  /* Inserts a closing quotation mark after the content of <cite> and <dfn> elements, defaulting to a double quote unless overridden. */
-  content: var(--_quotation-end, '”');
-}
+    :where(cite, dfn)::after {
+    /* Inserts a closing quotation mark after the content of <cite> and <dfn> elements, defaulting to a double quote unless overridden. */
+    content: var(--_quotation-end, '”');
+    }
 
-:where(cite, dfn):where(:lang(ja)) {
-  /* Overrides the default opening quotation mark with the Japanese opening quote for <cite> and <dfn> elements in Japanese. */
-  --_quotation-start: '「';
-  --_quotation-end: '」';
-}
+    :where(cite, dfn):where(:lang(ja)) {
+    /* Overrides the default opening quotation mark with the Japanese opening quote for <cite> and <dfn> elements in Japanese. */
+    --_quotation-start: '「';
+    --_quotation-end: '」';
+    }
 
-:where(var) {
-  /* Sets the font family to serif for <var> elements, enhancing the typographic distinction of variable names in technical content. */
-  font-family: serif;
-}
+    :where(var) {
+    /* Sets the font family to serif for <var> elements, enhancing the typographic distinction of variable names in technical content. */
+    font-family: serif;
+    }
 
-@supports (text-decoration-color: color-mix(in sRGB, Mark, transparent)) {
-  :where(mark) {
+    @supports (text-decoration-color: color-mix(in sRGB, Mark, transparent)) {
+    :where(mark) {
+        /* Remove any default background colors. */
+        background-color: unset;
+
+        /* Reset text color to default or inherited value. */
+        color: unset;
+
+        /* Applies an underline to the text to highlight it. */
+        text-decoration-line: underline;
+
+        /* Sets the color of the underline using a mix of the 'Mark' color and transparency. */
+        text-decoration-color: color-mix(in sRGB, Mark, transparent 50%);
+
+        /* Specifies the thickness of the underline. */
+        text-decoration-thickness: 0.4em;
+
+        /* Adjusts the position of the underline closer to the text. */
+        text-underline-offset: -0.2em;
+
+        /* Ensures the underline is not broken by descenders in characters like g, j, p, q, and y. */
+        text-decoration-skip-ink: none;
+    }
+    }
+
+    /* ======================================================
+    // Links
+    // ------------------------------------------------------ */
+    :where(:any-link) {
     /* Remove any default background colors. */
     background-color: unset;
 
     /* Reset text color to default or inherited value. */
     color: unset;
 
-    /* Applies an underline to the text to highlight it. */
-    text-decoration-line: underline;
+    /* Remove underline from links. */
+    text-decoration-line: none;
 
-    /* Sets the color of the underline using a mix of the 'Mark' color and transparency. */
-    text-decoration-color: color-mix(in sRGB, Mark, transparent 50%);
+    /* Set the thickness of the text decoration based on the font metrics. */
+    text-decoration-thickness: from-font;
 
-    /* Specifies the thickness of the underline. */
-    text-decoration-thickness: 0.4em;
+    /* Position the underline slightly away from the text for enhanced legibility. */
+    text-underline-offset: 0.25em;
+    }
 
-    /* Adjusts the position of the underline closer to the text. */
-    text-underline-offset: -0.2em;
+    /* ======================================================
+    // Edits
+    // ------------------------------------------------------ */
+    :where(ins) {
+    /* Use a dashed line for underlining inserted content, making it distinctly visible. */
+    text-decoration-style: dashed;
 
-    /* Ensures the underline is not broken by descenders in characters like g, j, p, q, and y. */
-    text-decoration-skip-ink: none;
-  }
+    /* Position the underline slightly away from the text for enhanced legibility. */
+    text-underline-offset: 0.4em;
+    }
+
+    :where(del) {
+    /* Apply a double line through the text for deleted content, enhancing visibility. */
+    text-decoration-style: double;
+    }
+
+    /* ======================================================
+    // Embedded content
+    // ------------------------------------------------------ */
+    :where(img, video, canvas, audio, iframe, embed, object) {
+    /* Set elements to display as block-level flow containers, suitable for complex layouts. */
+    display: block flow;
+
+    /* Align these elements vertically to the middle of their containing line. */
+    vertical-align: middle;
+    }
+
+    :where(img, svg, video) {
+    /* Automatically adjusts the block size based on content. */
+    block-size: auto;
+
+    /* Limits the maximum size inline to prevent overflow. */
+    max-inline-size: 100%;
+    }
+
+    :where(svg) {
+    /* Align these elements vertically to the middle of their containing line. */
+    vertical-align: middle;
+    }
+
+    /* ======================================================
+    // Tabular data
+    // ------------------------------------------------------ */
+    :where(table) {
+    /* Collapses border for a more compact table design. */
+    border-collapse: collapse;
+    }
+
+    :where(caption) {
+    /* Aligns the caption text to the start of the element. */
+    text-align: start;
+    }
+
+    :where(td, th) {
+    /* Removes default padding from table cells and headers. */
+    padding: unset;
+
+    /* Aligns content of table cells to the top. */
+    vertical-align: top;
+    }
+
+    :where(th) {
+    /* Makes table header text bold. */
+    font-weight: 700;
+
+    /* Aligns header text to the start of the cell. */
+    text-align: start;
+    }
+
+    /* ======================================================
+    // Forms
+    // ------------------------------------------------------ */
+    :where(button, input, select, textarea),
+    ::file-selector-button {
+    /* Remove default padding. */
+    padding: unset;
+
+    /* Apply a transparent border for forced colors mode. */
+    border-width: 1px;
+    border-color: transparent;
+
+    /* Resets border-radius to default. */
+    border-radius: unset;
+
+    /* Removes default background color. */
+    background-color: unset;
+
+    /* Removes default text color. */
+    color: unset;
+
+    /* Resets font settings to inherit from parent. */
+    font: unset;
+
+    /* Centers the element vertically within its line box. */
+    vertical-align: middle;
+
+    /* Resets letter-spacing to default. */
+    letter-spacing: unset;
+
+    /* Resets text alignment to default. */
+    text-align: unset;
+
+    /* Resets text transformation to default. */
+    text-transform: unset;
+    }
+
+    :where([type='radio' i], [type='checkbox' i]) {
+    /* Remove default margin. */
+    margin: unset;
+    }
+
+    :where([type='file' i]) {
+    /* Default cursor for file input fields. */
+    cursor: unset;
+    }
+
+    :where(textarea) {
+    /* Remove default margin in Firefox. */
+    margin-block: unset;
+
+    /* Allows resizing of textarea vertically only. */
+    resize: block;
+    }
+
+    :where(button),
+    ::file-selector-button {
+    /* Set the inline-size of the button to match the content's inline-size exactly. */
+    inline-size: fit-content;
+
+    /* Optimizes touch interaction for buttons. */
+    touch-action: manipulation;
+    }
+
+    :where(button)::-moz-focus-inner {
+    /* Remove the inner padding in Firefox. */
+    padding: unset;
+    }
+
+    :where(button, label[for], select, [role='tab'], [role='button']),
+    ::file-selector-button {
+    /* Indicate clickable elements with a pointer cursor. */
+    cursor: pointer;
+    }
+
+    :where(select:disabled) {
+    /* Keep the opacity of disabled selects consistent with other disabled elements. */
+    opacity: inherit;
+    }
+
+    :where(fieldset) {
+    /* Remove default margin-inline. */
+    margin-inline: unset;
+
+    /* Remove default padding. */
+    padding: unset;
+    }
+
+    :where(legend) {
+    /* Remove default padding-inline. */
+    padding-inline: unset;
+    }
+
+    :where(optgroup) {
+    /* Resets font settings to inherit from parent. */
+    font: unset;
+    }
+
+    ::placeholder {
+    /* Normalize the opacity of placeholder text to fully opaque in Firefox, where it might be set to less by default. */
+    opacity: unset;
+    }
+
+    /* ======================================================
+    // Interactive elements
+    // ------------------------------------------------------ */
+    :where(summary) {
+    /* Eliminate the default marker from details summary for a cleaner disclosure widget. */
+    display: block flow;
+
+    /* Indicate clickable elements with a pointer cursor. */
+    cursor: pointer;
+    }
+
+    ::-webkit-details-marker {
+    /* Hide the default disclosure marker to allow for custom styling. */
+    display: none;
+    }
+
+    :where(dialog) {
+    /* Resets overflow property. */
+    overflow: unset;
+
+    /* Resets the inline size property. */
+    inline-size: unset;
+
+    /* Resets the block size property. */
+    block-size: unset;
+
+    /* Resets the max inline size limit. */
+    max-inline-size: unset;
+
+    /* Resets the max block size limit. */
+    max-block-size: unset;
+
+    /* Removes default padding. */
+    padding: unset;
+
+    /* Removes default background color. */
+    background-color: unset;
+
+    /* Resets color to default. */
+    color: unset;
+    }
+
+    :where([popover]) {
+    /* Resets overflow property. */
+    overflow: unset;
+
+    /* Resets the inline size property. */
+    inline-size: unset;
+
+    /* Resets the block size property. */
+    block-size: unset;
+
+    /* Removes default padding. */
+    padding: unset;
+
+    /* Removes default background color. */
+    background-color: unset;
+
+    /* Resets color to default. */
+    color: unset;
+    }
+
+    ::backdrop {
+    /* Remove default backdrop color for a clearer view of the underlying content. */
+    background-color: unset;
+    }
+
+    /* ======================================================
+    // Focus styles
+    // ------------------------------------------------------ */
+    :where(:-moz-focusring) {
+    /* Improve outlines for Firefox and unify style with input elements and buttons. */
+    outline: auto;
+    }
+
+    :where(:focus-visible) {
+    /* Slightly offset focus outline for better visibility without overlapping text. */
+    outline-offset: 2px;
+    }
+
+    :where(:focus:not(:focus-visible)) {
+    /* Hide focus outline unless element is explicitly focus-visible to reduce visual clutter. */
+    outline: none;
+    }
+
+    [tabindex='-1']:focus-visible {
+    /* Ensure that programmatically focused elements do not show an outline unless they are naturally focusable. */
+    outline: none !important;
+    }
+
+    /* ======================================================
+    // Misc
+    // ------------------------------------------------------ */
+    :where(:disabled) {
+    /* Show default cursor for disabled elements to reflect their non-interactive state. */
+    cursor: default;
+    }
+
+    [hidden]:not([hidden='until-found']) {
+    /* Ensure elements intended to be hidden are not displayed, enhancing clarity and layout control. */
+    display: none !important;
+    }
 }
 
-/* ======================================================
-// Links
-// ------------------------------------------------------ */
-:where(:any-link) {
-  /* Remove any default background colors. */
-  background-color: unset;
-
-  /* Reset text color to default or inherited value. */
-  color: unset;
-
-  /* Remove underline from links. */
-  text-decoration-line: none;
-
-  /* Set the thickness of the text decoration based on the font metrics. */
-  text-decoration-thickness: from-font;
-
-  /* Position the underline slightly away from the text for enhanced legibility. */
-  text-underline-offset: 0.25em;
-}
-
-/* ======================================================
-// Edits
-// ------------------------------------------------------ */
-:where(ins) {
-  /* Use a dashed line for underlining inserted content, making it distinctly visible. */
-  text-decoration-style: dashed;
-
-  /* Position the underline slightly away from the text for enhanced legibility. */
-  text-underline-offset: 0.4em;
-}
-
-:where(del) {
-  /* Apply a double line through the text for deleted content, enhancing visibility. */
-  text-decoration-style: double;
-}
-
-/* ======================================================
-// Embedded content
-// ------------------------------------------------------ */
-:where(img, video, canvas, audio, iframe, embed, object) {
-  /* Set elements to display as block-level flow containers, suitable for complex layouts. */
-  display: block flow;
-
-  /* Align these elements vertically to the middle of their containing line. */
-  vertical-align: middle;
-}
-
-:where(img, svg, video) {
-  /* Automatically adjusts the block size based on content. */
-  block-size: auto;
-
-  /* Limits the maximum size inline to prevent overflow. */
-  max-inline-size: 100%;
-}
-
-:where(svg) {
-  /* Align these elements vertically to the middle of their containing line. */
-  vertical-align: middle;
-}
-
-/* ======================================================
-// Tabular data
-// ------------------------------------------------------ */
-:where(table) {
-  /* Collapses border for a more compact table design. */
-  border-collapse: collapse;
-}
-
-:where(caption) {
-  /* Aligns the caption text to the start of the element. */
-  text-align: start;
-}
-
-:where(td, th) {
-  /* Removes default padding from table cells and headers. */
-  padding: unset;
-
-  /* Aligns content of table cells to the top. */
-  vertical-align: top;
-}
-
-:where(th) {
-  /* Makes table header text bold. */
-  font-weight: 700;
-
-  /* Aligns header text to the start of the cell. */
-  text-align: start;
-}
-
-/* ======================================================
-// Forms
-// ------------------------------------------------------ */
-:where(button, input, select, textarea),
-::file-selector-button {
-  /* Remove default padding. */
-  padding: unset;
-
-  /* Apply a transparent border for forced colors mode. */
-  border-width: 1px;
-  border-color: transparent;
-
-  /* Resets border-radius to default. */
-  border-radius: unset;
-
-  /* Removes default background color. */
-  background-color: unset;
-
-  /* Removes default text color. */
-  color: unset;
-
-  /* Resets font settings to inherit from parent. */
-  font: unset;
-
-  /* Centers the element vertically within its line box. */
-  vertical-align: middle;
-
-  /* Resets letter-spacing to default. */
-  letter-spacing: unset;
-
-  /* Resets text alignment to default. */
-  text-align: unset;
-
-  /* Resets text transformation to default. */
-  text-transform: unset;
-}
-
-:where([type='radio' i], [type='checkbox' i]) {
-  /* Remove default margin. */
-  margin: unset;
-}
-
-:where([type='file' i]) {
-  /* Default cursor for file input fields. */
-  cursor: unset;
-}
-
-:where(textarea) {
-  /* Remove default margin in Firefox. */
-  margin-block: unset;
-
-  /* Allows resizing of textarea vertically only. */
-  resize: block;
-}
-
-:where(button),
-::file-selector-button {
-  /* Set the inline-size of the button to match the content's inline-size exactly. */
-  inline-size: fit-content;
-
-  /* Optimizes touch interaction for buttons. */
-  touch-action: manipulation;
-}
-
-:where(button)::-moz-focus-inner {
-  /* Remove the inner padding in Firefox. */
-  padding: unset;
-}
-
-:where(button, label[for], select, [role='tab'], [role='button']),
-::file-selector-button {
-  /* Indicate clickable elements with a pointer cursor. */
-  cursor: pointer;
-}
-
-:where(select:disabled) {
-  /* Keep the opacity of disabled selects consistent with other disabled elements. */
-  opacity: inherit;
-}
-
-:where(fieldset) {
-  /* Remove default margin-inline. */
-  margin-inline: unset;
-
-  /* Remove default padding. */
-  padding: unset;
-}
-
-:where(legend) {
-  /* Remove default padding-inline. */
-  padding-inline: unset;
-}
-
-:where(optgroup) {
-  /* Resets font settings to inherit from parent. */
-  font: unset;
-}
-
-::placeholder {
-  /* Normalize the opacity of placeholder text to fully opaque in Firefox, where it might be set to less by default. */
-  opacity: unset;
-}
-
-/* ======================================================
-// Interactive elements
-// ------------------------------------------------------ */
-:where(summary) {
-  /* Eliminate the default marker from details summary for a cleaner disclosure widget. */
-  display: block flow;
-
-  /* Indicate clickable elements with a pointer cursor. */
-  cursor: pointer;
-}
-
-::-webkit-details-marker {
-  /* Hide the default disclosure marker to allow for custom styling. */
-  display: none;
-}
-
-:where(dialog) {
-  /* Resets overflow property. */
-  overflow: unset;
-
-  /* Resets the inline size property. */
-  inline-size: unset;
-
-  /* Resets the block size property. */
-  block-size: unset;
-
-  /* Resets the max inline size limit. */
-  max-inline-size: unset;
-
-  /* Resets the max block size limit. */
-  max-block-size: unset;
-
-  /* Removes default padding. */
-  padding: unset;
-
-  /* Removes default background color. */
-  background-color: unset;
-
-  /* Resets color to default. */
-  color: unset;
-}
-
-:where([popover]) {
-  /* Resets overflow property. */
-  overflow: unset;
-
-  /* Resets the inline size property. */
-  inline-size: unset;
-
-  /* Resets the block size property. */
-  block-size: unset;
-
-  /* Removes default padding. */
-  padding: unset;
-
-  /* Removes default background color. */
-  background-color: unset;
-
-  /* Resets color to default. */
-  color: unset;
-}
-
-::backdrop {
-  /* Remove default backdrop color for a clearer view of the underlying content. */
-  background-color: unset;
-}
-
-/* ======================================================
-// Focus styles
-// ------------------------------------------------------ */
-:where(:-moz-focusring) {
-  /* Improve outlines for Firefox and unify style with input elements and buttons. */
-  outline: auto;
-}
-
-:where(:focus-visible) {
-  /* Slightly offset focus outline for better visibility without overlapping text. */
-  outline-offset: 2px;
-}
-
-:where(:focus:not(:focus-visible)) {
-  /* Hide focus outline unless element is explicitly focus-visible to reduce visual clutter. */
-  outline: none;
-}
-
-[tabindex='-1']:focus-visible {
-  /* Ensure that programmatically focused elements do not show an outline unless they are naturally focusable. */
-  outline: none !important;
-}
-
-/* ======================================================
-// Misc
-// ------------------------------------------------------ */
-:where(:disabled) {
-  /* Show default cursor for disabled elements to reflect their non-interactive state. */
-  cursor: default;
-}
-
-[hidden]:not([hidden='until-found']) {
-  /* Ensure elements intended to be hidden are not displayed, enhancing clarity and layout control. */
-  display: none !important;
-}
+@layer base {
+    :where(svg) {
+        stroke: currentColor;
+    }
 }
 
 @stylex stylesheet;
