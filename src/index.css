@@ -541,6 +541,10 @@
         font-family: 'Mulish', sans-serif;
         font-weight: 400;
     }
+
+    body {
+        min-width: 344px;
+    }
 }
 
 @stylex stylesheet;
