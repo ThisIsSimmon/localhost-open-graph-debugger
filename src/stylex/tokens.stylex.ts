@@ -10,7 +10,7 @@ export const colors = stylex.defineVars({
 	text: '#fff',
 	backgroundButton: 'rgb(255 255 255 / 0.1)',
 	backgroundToast: 'rgb(from #0F0330 r g b / 0.4)',
-	backgroundBody: 'rgb(from #3F1D6F r g b / 0.3)',
+	backgroundBody: 'rgb(from #3F1D6F r g b / 0.4)',
 	toastSuccess: '#0FC970',
 	toastFailed: '#FBAA08',
 	borderButton: 'rgb(255 255 255 / 0.2)',
