@@ -1,3 +1,4 @@
+import { resolve } from 'node:path';
 import { crx } from '@crxjs/vite-plugin';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
@@ -11,7 +12,7 @@ export default defineConfig({
 	plugins: isStorybook ? [react(), styleX()] : [react(), styleX(), crx({ manifest })],
 	resolve: {
 		alias: {
-			'@': '/src',
+			'@': resolve(__dirname, 'src'),
 		},
 	},
 });
