@@ -14,6 +14,7 @@ const styles = stylex.create({
 		lineHeight: 1.25,
 		textAlign: 'center',
 		marginBlock: 'calc((1em - 1lh) / 1)',
+		textWrap: 'balance',
 	},
 	link: {
 		color: colors.primaryNormal,
@@ -30,7 +31,9 @@ export const Description = () => {
 	return (
 		<div {...stylex.props(styles.root)}>
 			<p {...stylex.props(styles.text)}>
-				Open the local page you want to debug and press the "submit" button below. This will send the og images and meta tags to{' '}
+				Open the local page you want to debug and press the "submit" button below.
+				<br />
+				This will send the og images and meta tags to{' '}
 				<a href='https://og.nullnull.dev' target='_blank' rel='noreferrer noopener' {...stylex.props(styles.link)}>
 					og.nullnull
 					<IconExternalLink size={13} />
