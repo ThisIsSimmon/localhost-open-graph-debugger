@@ -3,6 +3,7 @@ import * as stylex from '@stylexjs/stylex';
 
 const styles = stylex.create({
 	base: {
+		fontFamily: 'Mulish, sans-serif',
 		fontSize: 18,
 		fontWeight: 900,
 		lineHeight: '1cap',

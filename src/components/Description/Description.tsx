@@ -10,6 +10,7 @@ const styles = stylex.create({
 	},
 	text: {
 		fontSize: 13,
+		fontFamily: 'Mulish, sans-serif',
 		lineHeight: 1.25,
 		textAlign: 'center',
 		marginBlock: 'calc((1em - 1lh) / 1)',

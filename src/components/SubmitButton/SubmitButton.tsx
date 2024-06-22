@@ -11,6 +11,7 @@ const styles = stylex.create({
 		color: colors.text,
 		display: 'grid',
 		fontSize: 16,
+		fontFamily: 'Mulish, sans-serif',
 		fontWeight: 700,
 		lineHeight: 1.25,
 		minHeight: 'calc(40 / 16 * 1em)',

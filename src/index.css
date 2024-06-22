@@ -538,7 +538,6 @@
 
     html {
         letter-spacing: 0.04em;
-        font-family: 'Mulish', sans-serif;
         font-weight: 400;
     }
 
@@ -546,5 +545,6 @@
         min-width: 344px;
     }
 }
+
 
 @stylex stylesheet;
