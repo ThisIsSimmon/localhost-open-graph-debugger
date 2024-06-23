@@ -21,4 +21,5 @@ export const manifest = defineManifest({
 		default_title: 'Localhost Open Graph Debugger',
 		default_popup: 'index.html',
 	},
+	permissions: ['activeTab', 'scripting'],
 });
