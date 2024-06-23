@@ -17,6 +17,7 @@ export const colors = stylex.defineVars({
 	borderButtonHover: 'rgb(255 255 255 / 0.4)',
 	borderBody: 'rgb(255 255 255 / 0.24)',
 	boxShadowButtonHover: 'rgb(255 255 255 / 0.24)',
+	boxShadowToast: 'rgb(from #0F0330 r g b / 0.24)',
 });
 
 export const easings = stylex.defineVars({

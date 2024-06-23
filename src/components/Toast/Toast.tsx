@@ -1,7 +1,9 @@
 import { colors, easings } from '@/stylex/tokens.stylex';
+import type { ToastAction, ToastState } from '@/types';
 import * as RadixToast from '@radix-ui/react-toast';
 import * as stylex from '@stylexjs/stylex';
 import { IconBellExclamation, IconChecks } from '@tabler/icons-react';
+import type { Dispatch } from 'react';
 
 const slideIn = stylex.keyframes({
 	'0%': { translate: '0 calc(-100% - var(--viewport-padding))' },
@@ -30,6 +32,8 @@ const styles = stylex.create({
 		gridTemplateColumns: 'auto 1fr',
 		alignItems: 'flex-start',
 		columnGap: 8,
+		backdropFilter: 'blur(24px)',
+		boxShadow: `0 4px 24px ${colors.boxShadowToast}`,
 		':is([data-swipe="move"])': {
 			transform: 'translateY(var(--radix-toast-swipe-move-y))',
 		},
@@ -50,7 +54,7 @@ const styles = stylex.create({
 	},
 	content: {
 		display: 'grid',
-		rowGap: 8,
+		rowGap: 6,
 	},
 	iconSuccess: {
 		color: colors.toastSuccess,
@@ -65,7 +69,7 @@ const styles = stylex.create({
 		lineHeight: 1,
 	},
 	description: {
-		fontSize: 13,
+		fontSize: 12,
 		lineHeight: 1.25,
 		color: colors.text,
 		marginBlock: 'calc((1em - 1lh) / 2)',
@@ -73,15 +77,30 @@ const styles = stylex.create({
 });
 
 type Props = {
-	type: 'success' | 'failed';
-	title: string;
-	description: string;
+	toast: ToastState;
+	dispatch: Dispatch<ToastAction>;
 };
 
-export const Toast = ({ type, title, description }: Props) => {
+export const Toast = ({ toast, dispatch }: Props) => {
+	const { type, title, description } = toast;
+
 	return (
 		<RadixToast.Provider swipeDirection='up'>
-			<RadixToast.Root {...stylex.props(styles.root)} duration={60000}>
+			<RadixToast.Root
+				{...stylex.props(styles.root)}
+				duration={60000}
+				open={toast.isOpen}
+				onOpenChange={open =>
+					dispatch({
+						type: open ? 'open' : 'close',
+						payload: {
+							type: toast.type,
+							title: toast.title,
+							description: toast.description,
+						},
+					})
+				}
+			>
 				{type === 'success' ? <IconChecks size={15} {...stylex.props(styles.iconSuccess)} /> : <IconBellExclamation size={15} {...stylex.props(styles.iconFailed)} />}
 				<div {...stylex.props(styles.content)}>
 					<RadixToast.Title {...stylex.props(styles.title)}>{title}</RadixToast.Title>

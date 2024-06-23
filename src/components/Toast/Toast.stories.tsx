@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import type { ToastAction, ToastState } from '@/types';
+import { useReducer } from 'react';
 import { Toast } from './Toast';
 
 const meta = {
@@ -10,18 +12,72 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+const initialState: ToastState = {
+	isOpen: true,
+	type: 'success',
+	title: '',
+	description: '',
+};
+
+const reducer = (state: ToastState, action: ToastAction): ToastState => {
+	switch (action.type) {
+		case 'open':
+			return { ...state, isOpen: true, ...action.payload };
+		case 'close':
+			return { ...state, isOpen: false };
+		default:
+			return state;
+	}
+};
+
 export const Success: Story = {
 	args: {
-		type: 'success',
-		title: 'Success',
-		description: "The debug page has been opened in a new tab, let's take a look!",
+		toast: {
+			isOpen: true,
+			type: 'success',
+			title: 'Success',
+			description: "The debug page has been opened in a new tab, let's take a look!",
+		},
+		dispatch: () => {},
+	},
+	render: function Component({ ...args }) {
+		const [state, dispatch] = useReducer(reducer, initialState);
+		return (
+			<Toast
+				toast={{
+					isOpen: state.isOpen,
+					type: args.toast.type,
+					title: args.toast.title,
+					description: args.toast.description,
+				}}
+				dispatch={dispatch}
+			/>
+		);
 	},
 };
 
 export const Failed: Story = {
 	args: {
-		type: 'failed',
-		title: 'Failed',
-		description: 'Check the error in the Console of DevTools',
+		toast: {
+			isOpen: true,
+			type: 'failed',
+			title: 'Failed',
+			description: 'Check the error in the Console of DevTools',
+		},
+		dispatch: () => {},
+	},
+	render: function Component({ ...args }) {
+		const [state, dispatch] = useReducer(reducer, initialState);
+		return (
+			<Toast
+				toast={{
+					isOpen: state.isOpen,
+					type: args.toast.type,
+					title: args.toast.title,
+					description: args.toast.description,
+				}}
+				dispatch={dispatch}
+			/>
+		);
 	},
 };
