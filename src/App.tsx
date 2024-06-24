@@ -3,6 +3,7 @@ import { Description } from '@/components/Description';
 import { SubmitButton } from '@/components/SubmitButton';
 import { Title } from '@/components/Title/Title';
 import { Toast } from '@/components/Toast/Toast';
+import { post } from '@/post';
 import type { ToastAction, ToastState } from '@/types';
 import * as stylex from '@stylexjs/stylex';
 import { useReducer } from 'react';
@@ -40,11 +41,8 @@ const reducer = (state: ToastState, action: ToastAction): ToastState => {
 };
 
 function App() {
-	const [state, dispatch] = useReducer(reducer, initialState);
-
-	const doSomething = () => {
-		console.log(document.body.innerHTML);
-	};
+	const [toast, setToast] = useReducer(reducer, initialState);
+	const [pending, togglePending] = useReducer((pending: boolean) => !pending, false);
 
 	const getCurrentTab = async (): Promise<chrome.tabs.Tab> => {
 		const queryOptions = { active: true, currentWindow: true };
@@ -53,9 +51,11 @@ function App() {
 	};
 
 	const onSubmit = async () => {
+		togglePending();
+
 		const tab = await getCurrentTab();
 		if (tab.id === undefined) {
-			dispatch({
+			setToast({
 				type: 'open',
 				payload: {
 					type: 'failed',
@@ -66,29 +66,54 @@ function App() {
 			return;
 		}
 
-		chrome.scripting.executeScript({
+		const results = await chrome.scripting.executeScript({
 			target: { tabId: tab.id },
-			func: doSomething,
+			func: post,
 		});
+
+		if (!results[0].result || results[0].result?.type === 'failed') {
+			setToast({
+				type: 'open',
+				payload: {
+					type: 'failed',
+					title: 'Failed',
+					description: 'Check the error in the Console of DevTools',
+				},
+			});
+			togglePending();
+			return;
+		}
+
+		const debugUrl = results[0].result.debugUrl;
+		await chrome.tabs.create({ url: debugUrl, active: false });
+		setToast({
+			type: 'open',
+			payload: {
+				type: 'success',
+				title: 'Success',
+				description: "The debug page has been opened in a new tab, let's take a look!",
+			},
+		});
+		togglePending();
 	};
 	return (
 		<>
 			<Background />
 			<Toast
 				toast={{
-					isOpen: state.isOpen,
-					type: state.type,
-					title: state.title,
-					description: state.description,
+					isOpen: toast.isOpen,
+					type: toast.type,
+					title: toast.title,
+					description: toast.description,
 				}}
-				dispatch={dispatch}
+				setToast={setToast}
 			/>
 			<div {...stylex.props(styles.container)}>
 				<div {...stylex.props(styles.guide)}>
 					<Title />
 					<Description />
 				</div>
-				<SubmitButton onClick={onSubmit} />
+				<SubmitButton onClick={onSubmit} isLoading={pending} />
 			</div>
 		</>
 	);
