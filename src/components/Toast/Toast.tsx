@@ -78,10 +78,10 @@ const styles = stylex.create({
 
 type Props = {
 	toast: ToastState;
-	dispatch: Dispatch<ToastAction>;
+	setToast: Dispatch<ToastAction>;
 };
 
-export const Toast = ({ toast, dispatch }: Props) => {
+export const Toast = ({ toast, setToast }: Props) => {
 	const { type, title, description } = toast;
 
 	return (
@@ -91,7 +91,7 @@ export const Toast = ({ toast, dispatch }: Props) => {
 				duration={60000}
 				open={toast.isOpen}
 				onOpenChange={open =>
-					dispatch({
+					setToast({
 						type: open ? 'open' : 'close',
 						payload: {
 							type: toast.type,

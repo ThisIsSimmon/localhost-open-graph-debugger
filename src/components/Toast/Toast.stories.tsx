@@ -38,19 +38,19 @@ export const Success: Story = {
 			title: 'Success',
 			description: "The debug page has been opened in a new tab, let's take a look!",
 		},
-		dispatch: () => {},
+		setToast: () => {},
 	},
 	render: function Component({ ...args }) {
-		const [state, dispatch] = useReducer(reducer, initialState);
+		const [toast, setToast] = useReducer(reducer, initialState);
 		return (
 			<Toast
 				toast={{
-					isOpen: state.isOpen,
+					isOpen: toast.isOpen,
 					type: args.toast.type,
 					title: args.toast.title,
 					description: args.toast.description,
 				}}
-				dispatch={dispatch}
+				setToast={setToast}
 			/>
 		);
 	},
@@ -64,19 +64,19 @@ export const Failed: Story = {
 			title: 'Failed',
 			description: 'Check the error in the Console of DevTools',
 		},
-		dispatch: () => {},
+		setToast: () => {},
 	},
 	render: function Component({ ...args }) {
-		const [state, dispatch] = useReducer(reducer, initialState);
+		const [toast, setToast] = useReducer(reducer, initialState);
 		return (
 			<Toast
 				toast={{
-					isOpen: state.isOpen,
+					isOpen: toast.isOpen,
 					type: args.toast.type,
 					title: args.toast.title,
 					description: args.toast.description,
 				}}
-				dispatch={dispatch}
+				setToast={setToast}
 			/>
 		);
 	},
