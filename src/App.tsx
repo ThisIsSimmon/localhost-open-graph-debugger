@@ -3,7 +3,7 @@ import { Description } from '@/components/Description';
 import { SubmitButton } from '@/components/SubmitButton';
 import { Title } from '@/components/Title/Title';
 import { Toast } from '@/components/Toast/Toast';
-import { post } from '@/post';
+import { submit } from '@/submit';
 import type { ToastAction, ToastState } from '@/types';
 import * as stylex from '@stylexjs/stylex';
 import { useReducer } from 'react';
@@ -68,7 +68,7 @@ function App() {
 
 		const results = await chrome.scripting.executeScript({
 			target: { tabId: tab.id },
-			func: post,
+			func: submit,
 		});
 
 		if (!results[0].result || results[0].result?.type === 'failed') {
