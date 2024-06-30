@@ -9,7 +9,7 @@ type Result =
 
 export const submit = () => {
 	const getMetaTagString = (): string => {
-		const ExcludeMetaTag = ['[name="viewport"]', '[charset]', '[http-equiv]', '[name="theme-color"]', '[name="referrer"]', '[name="robots"]', '[name="color-scheme"]', '[name="format-detection"]', '[property="og:image"]', '[name="twitter:image"]'];
+		const ExcludeMetaTag = ['[name="viewport"]', '[charset]', '[http-equiv]', '[name="theme-color"]', '[name="referrer"]', '[name="robots"]', '[name="color-scheme"]', '[name="format-detection"]', '[property="og:image"]', '[name="twitter:image"]', '[property="og:url"]'];
 		const metaTags = document.head.querySelectorAll(`meta:not(${ExcludeMetaTag.join(',')}`);
 		return JSON.stringify(Array.from(metaTags).map(meta => meta.outerHTML));
 	};
@@ -20,10 +20,10 @@ export const submit = () => {
 	};
 
 	const getImagesFromMetaTags = async (): Promise<{
-		ogImage: File | null;
-		twitterImage: File | null;
+		ogImage: Blob | null;
+		twitterImage: Blob | null;
 	}> => {
-		const fetchImageFromMeta = async (selector: string): Promise<File | null> => {
+		const fetchImageFromMeta = async (selector: string): Promise<Blob | null> => {
 			const metaTag = document.head.querySelector(selector) as HTMLMetaElement | null;
 			if (!metaTag) {
 				return null;
@@ -45,16 +45,8 @@ export const submit = () => {
 					log(`Failed to fetch image from ${url}: Not an image`);
 					return null;
 				}
-				const urlObj = new URL(url);
-				const pathname = urlObj.pathname;
-				const fileName = pathname.split('/').pop();
-				if (!fileName) {
-					log(`Failed to fetch image from ${url}: Invalid File Name`);
-					return null;
-				}
 
-				const file = new File([blob], fileName, { type: blob.type });
-				return file;
+				return blob;
 			} catch (_) {
 				return null;
 			}
@@ -79,8 +71,7 @@ export const submit = () => {
 				formData.append('twitterImage', images.twitterImage);
 			}
 
-			const baseUrl = 'http://192.168.11.8:5173';
-			// const baseUrl = 'https://og.nullnull.dev';
+			const baseUrl = 'https://og.nullnull.dev';
 
 			const response = await fetch(`${baseUrl}/api/post`, {
 				method: 'POST',
@@ -91,12 +82,14 @@ export const submit = () => {
 			});
 			const data = await response.json();
 			if (!response.ok || !data.success) {
+				console.log(data);
 				log(data.message);
 				return { type: 'failed' };
 			}
 
 			return { type: 'success', debugUrl: data.debugUrl };
 		} catch (error) {
+			console.log(error);
 			if (error instanceof Error) {
 				log(error.message);
 			} else {
