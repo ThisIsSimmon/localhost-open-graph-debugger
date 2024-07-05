@@ -1,0 +1,42 @@
+{
+    "name": "localhost-open-graph-debugger",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview",
+        "storybook": "STORYBOOK=true storybook dev -p 6006",
+        "build-storybook": "storybook build"
+    },
+    "dependencies": {
+        "@fontsource/mulish": "^5.0.18",
+        "@radix-ui/react-toast": "^1.2.0",
+        "@stylexjs/stylex": "^0.6.1",
+        "@tabler/icons-react": "^3.6.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "1.8.1",
+        "@chromatic-com/storybook": "^1.5.0",
+        "@crxjs/vite-plugin": "^2.0.0-beta.23",
+        "@storybook/addon-essentials": "^8.1.10",
+        "@storybook/addon-interactions": "^8.1.10",
+        "@storybook/addon-links": "^8.1.10",
+        "@storybook/addon-onboarding": "^8.1.10",
+        "@storybook/blocks": "^8.1.10",
+        "@storybook/react": "^8.1.10",
+        "@storybook/react-vite": "^8.1.10",
+        "@storybook/test": "^8.1.10",
+        "@types/chrome": "^0.0.268",
+        "@types/react": "^18.2.66",
+        "@types/react-dom": "^18.2.22",
+        "@vitejs/plugin-react": "^4.2.1",
+        "storybook": "^8.1.10",
+        "typescript": "^5.2.2",
+        "vite": "^5.2.0",
+        "vite-plugin-stylex": "^0.9.0"
+    }
+}
