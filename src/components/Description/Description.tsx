@@ -42,8 +42,8 @@ export const Description = () => {
 			</p>
 			<p {...stylex.props(styles.text)}>
 				For information on our data handling policies, see the{' '}
-				<a href='https://og.nullnull.dev/about' target='_blank' rel='noreferrer noopener' {...stylex.props(styles.link)}>
-					About
+				<a href='https://og.nullnull.dev/privacy' target='_blank' rel='noreferrer noopener' {...stylex.props(styles.link)}>
+					Privacy Policy
 					<IconExternalLink size={13} />
 				</a>{' '}
 				page.
