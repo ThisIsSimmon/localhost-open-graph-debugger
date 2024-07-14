@@ -3,7 +3,7 @@ import { defineManifest } from '@crxjs/vite-plugin';
 export const manifest = defineManifest({
 	manifest_version: 3,
 	name: 'Localhost Open Graph Debugger',
-	version: '3.0',
+	version: '3.0.1',
 	description: 'Localhost Open Graph Debugger is a Chrome extension designed to check the Open Graph meta tags on locally hosted websites.',
 	icons: {
 		'16': 'src/assets/icon-16x16.png',
